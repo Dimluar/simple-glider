@@ -2,8 +2,11 @@ package io.github.dimluar.simpleglider.item.custom;
 
 import io.github.dimluar.simpleglider.SimpleGlider;
 import io.github.dimluar.simpleglider.component.ModComponents;
+import io.github.dimluar.simpleglider.util.GliderUtils;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -17,10 +20,17 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class GliderItem extends Item {
-    public GliderItem(Settings settings) {
+    public double gliderHorizontalFactor;
+    public double gliderVerticalMaxSpeed;
+
+    public GliderItem(Settings settings, double horizontalFactor, double verticalMaxSpeed) {
         super(settings
                 .maxCount(1)
-                .component(ModComponents.IS_GLIDING, false));
+                .component(ModComponents.IS_GLIDING, false)
+                .component(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, false));
+
+        gliderHorizontalFactor = horizontalFactor;
+        gliderVerticalMaxSpeed = verticalMaxSpeed;
     }
 
     @Override
@@ -34,13 +44,28 @@ public class GliderItem extends Item {
 
         boolean is_gliding = stack.getOrDefault(ModComponents.IS_GLIDING, false);
 
-        SimpleGlider.LOGGER.info("IS_GLINDING_1: {}", is_gliding);
-
         stack.set(ModComponents.IS_GLIDING, !is_gliding);
         is_gliding = stack.getOrDefault(ModComponents.IS_GLIDING, false);
 
-        SimpleGlider.LOGGER.info("IS_GLIDING_2: {}", is_gliding);
+        if (is_gliding) {
+            stack.set(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, true);
+        } else {
+            stack.set(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, false);
+        }
 
         return TypedActionResult.success(stack);
+    }
+
+    @Override
+    public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
+        boolean is_gliding = stack.getOrDefault(ModComponents.IS_GLIDING, false);
+        if (!selected) {
+            stack.set(ModComponents.IS_GLIDING, false);
+            stack.set(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, false);
+        } else {
+            if (is_gliding && !entity.isOnGround()) {
+                GliderUtils.glide(stack, entity);
+            }
+        }
     }
 }

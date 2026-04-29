@@ -10,7 +10,8 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class ModItems {
-    public static final Item GLIDER = register("glider", new GliderItem(new Item.Settings()));
+    public static final Item GLIDER = register("glider", new GliderItem(
+            new Item.Settings(), 1.1, -0.25));
 
 
     private static Item register(String name, Item item) {
