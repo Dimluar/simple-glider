@@ -1,5 +1,6 @@
 package io.github.dimluar.simpleglider.item.custom;
 
+import io.github.dimluar.simpleglider.SimpleGlider;
 import io.github.dimluar.simpleglider.component.ModComponents;
 import io.github.dimluar.simpleglider.util.GliderUtils;
 import net.minecraft.component.DataComponentTypes;
@@ -50,8 +51,10 @@ public class GliderItem extends Item {
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
+        int offHand = 0;
+        SimpleGlider.LOGGER.info(String.valueOf(slot));
         boolean is_gliding = stack.getOrDefault(ModComponents.IS_GLIDING, false);
-        if (!selected) {
+        if (!selected && slot != offHand) {
             stack.set(ModComponents.IS_GLIDING, false);
             stack.set(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, false);
         } else {
