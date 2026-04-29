@@ -1,5 +1,7 @@
 {
   "values": [
-    "simpleglider:glider"
+    "simpleglider:white_iron_glider",
+    "simpleglider:white_diamond_glider",
+    "simpleglider:white_netherite_glider"
   ]
 }

@@ -1,3 +1,5 @@
 {
-  "item.simpleglider.glider": "Glider"
+  "item.simpleglider.white_iron_glider": "White Iron Glider",
+  "item.simpleglider.white_diamond_glider": "White Diamond Glider",
+  "item.simpleglider.white_netherite_glider": "White Netherite Glider"
 }

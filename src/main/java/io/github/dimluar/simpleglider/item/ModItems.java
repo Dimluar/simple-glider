@@ -10,8 +10,12 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class ModItems {
-    public static final Item GLIDER = register("glider", new GliderItem(
-            new Item.Settings(), 1.1, -0.25));
+    public static final Item WHITE_IRON_GLIDER = register("white_iron_glider", new GliderItem(
+            new Item.Settings(), 1.05, -0.75));
+    public static final Item WHITE_DIAMOND_GLIDER = register("white_diamond_glider", new GliderItem(
+            new Item.Settings(), 1.08, -0.5));
+    public static final Item WHITE_NETHERITE_GLIDER = register("white_netherite_glider", new GliderItem(
+            new Item.Settings().fireproof(), 1.1, -0.25));
 
 
     private static Item register(String name, Item item) {
@@ -22,7 +26,9 @@ public class ModItems {
         SimpleGlider.LOGGER.info("Registering Items for " + SimpleGlider.MOD_ID + "!");
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {
-            entries.add(GLIDER);
+            entries.add(WHITE_IRON_GLIDER);
+            entries.add(WHITE_DIAMOND_GLIDER);
+            entries.add(WHITE_NETHERITE_GLIDER);
         });
     }
 }
