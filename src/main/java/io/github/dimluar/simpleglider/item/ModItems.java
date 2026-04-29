@@ -1,6 +1,7 @@
 package io.github.dimluar.simpleglider.item;
 
 import io.github.dimluar.simpleglider.SimpleGlider;
+import io.github.dimluar.simpleglider.item.custom.GliderItem;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
@@ -9,7 +10,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class ModItems {
-    public static final Item GLIDER = register("glider", new Item(new Item.Settings()));
+    public static final Item GLIDER = register("glider", new GliderItem(new Item.Settings()));
 
 
     private static Item register(String name, Item item) {

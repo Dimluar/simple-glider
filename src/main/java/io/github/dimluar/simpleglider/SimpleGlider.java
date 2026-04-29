@@ -1,5 +1,6 @@
 package io.github.dimluar.simpleglider;
 
+import io.github.dimluar.simpleglider.component.ModComponents;
 import io.github.dimluar.simpleglider.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
@@ -17,5 +18,6 @@ public class SimpleGlider implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ModItems.initialize();
+		ModComponents.initialize();
 	}
 }
