@@ -1,28 +1,54 @@
 package io.github.dimluar.simpleglider.util;
 
+import io.github.dimluar.simpleglider.SimpleGlider;
 import io.github.dimluar.simpleglider.item.custom.GliderItem;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 
 public class GliderUtils {
-    public static void glide(ItemStack stack, Entity entity) {
+    public static double baseSpeed = 0.1;
 
+    public static void glide(ItemStack stack, Entity entity) {
+        PlayerEntity player = (PlayerEntity) entity;
         GliderItem glider = (GliderItem) stack.getItem();
 
         double horizontalFactor = glider.gliderHorizontalFactor;
         double verticalMaxSpeed = glider.gliderVerticalMaxSpeed;
 
-        Vec3d velocity = entity.getVelocity();
+        Vec3d velocity = player.getVelocity();
+        double yaw = Math.toRadians(player.getYaw());
+        double directionX = -1 * Math.sin(yaw);
+        double directionZ = Math.cos(yaw);
+
 
         verticalMaxSpeed = Math.max(verticalMaxSpeed, velocity.y);
 
-        entity.setVelocity(
-                velocity.x * horizontalFactor,
+        player.setVelocity(
+                velocity.x,
                 verticalMaxSpeed,
-                velocity.z * horizontalFactor
+                velocity.z
         );
 
-        entity.fallDistance = 0;
+        player.addVelocity(
+                newVelocity(directionX, velocity.x, horizontalFactor, baseSpeed),
+                0,
+                newVelocity(directionZ, velocity.z, horizontalFactor, baseSpeed)
+        );
+
+        player.fallDistance = 0;
+    }
+
+    private static int dir(double number) {
+        return (number > 0) ? +1 : -1;
+    }
+
+    private static double newVelocity(double direction, double velocity, double factor, double speed) {
+        double newSpeed = direction * factor * baseSpeed;
+        double dirVelocity = dir(velocity);
+
+        return (newSpeed + velocity > factor) ? dirVelocity * factor - velocity : newSpeed;
     }
 }

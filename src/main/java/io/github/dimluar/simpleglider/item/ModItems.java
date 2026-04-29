@@ -13,9 +13,9 @@ public class ModItems {
     public static final Item WHITE_IRON_GLIDER = register("white_iron_glider", new GliderItem(
             new Item.Settings(), 1.05, -0.75));
     public static final Item WHITE_DIAMOND_GLIDER = register("white_diamond_glider", new GliderItem(
-            new Item.Settings(), 1.08, -0.5));
+            new Item.Settings(), 1.1, -0.5));
     public static final Item WHITE_NETHERITE_GLIDER = register("white_netherite_glider", new GliderItem(
-            new Item.Settings().fireproof(), 1.1, -0.25));
+            new Item.Settings().fireproof(), 1.15, -0.25));
 
 
     private static Item register(String name, Item item) {
