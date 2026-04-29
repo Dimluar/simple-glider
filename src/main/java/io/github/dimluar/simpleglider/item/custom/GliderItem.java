@@ -1,23 +1,15 @@
 package io.github.dimluar.simpleglider.item.custom;
 
-import io.github.dimluar.simpleglider.SimpleGlider;
 import io.github.dimluar.simpleglider.component.ModComponents;
 import io.github.dimluar.simpleglider.util.GliderUtils;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
-import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
-
-import java.util.List;
 
 public class GliderItem extends Item {
     public double gliderHorizontalFactor;

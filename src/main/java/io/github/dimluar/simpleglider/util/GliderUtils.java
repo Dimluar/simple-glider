@@ -1,6 +1,5 @@
 package io.github.dimluar.simpleglider.util;
 
-import io.github.dimluar.simpleglider.SimpleGlider;
 import io.github.dimluar.simpleglider.item.custom.GliderItem;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;

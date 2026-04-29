@@ -3,7 +3,6 @@ package io.github.dimluar.simpleglider.component;
 import com.mojang.serialization.Codec;
 import io.github.dimluar.simpleglider.SimpleGlider;
 import net.minecraft.component.ComponentType;
-import net.minecraft.registry.BuiltinRegistries;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
