@@ -1,11 +1,9 @@
 package io.github.dimluar.simpleglider.util;
 
-import io.github.dimluar.simpleglider.SimpleGlider;
 import io.github.dimluar.simpleglider.item.custom.GliderItem;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 
 public class GliderUtils {
