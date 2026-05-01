@@ -1,50 +1,50 @@
 package io.github.dimluar.simpleglider.util;
 
-import io.github.dimluar.simpleglider.item.custom.GliderItem;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.Vec3d;
+import io.github.dimluar.simpleglider.component.ModComponents;
+import io.github.dimluar.simpleglider.network.packet.ClientsideGlidingPayload;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.phys.Vec3;
+
+import java.util.logging.Level;
 
 public class GliderUtils {
-    public static double baseSpeed = 0.1;
-
     public static void glide(ItemStack stack, Entity entity) {
-        PlayerEntity player = (PlayerEntity) entity;
-        GliderItem glider = (GliderItem) stack.getItem();
-
-        double horizontalFactor = glider.gliderHorizontalFactor;
-        double verticalMaxSpeed = glider.gliderVerticalMaxSpeed;
-
-        Vec3d velocity = player.getVelocity();
-        double yaw = Math.toRadians(player.getYaw());
+        ServerPlayer player = (ServerPlayer) entity;
+        ModComponents.GliderProperties glider = stack.get(ModComponents.GLIDER_PROPERTIES);
+        double horizontalFactor = glider.horizontalFactor();
+        double verticalMaxSpeed = glider.verticalMaxSpeed();
+        Vec3 velocity = player.getDeltaMovement();
+        double yaw = Math.toRadians(player.getYRot());
         double directionX = -1 * Math.sin(yaw);
         double directionZ = Math.cos(yaw);
 
+        double verticalSpeed = Math.max(verticalMaxSpeed, velocity.y);
 
-        verticalMaxSpeed = Math.max(verticalMaxSpeed, velocity.y);
-
-        player.setVelocity(
+        Vec3 setVector = new Vec3(
                 velocity.x,
-                verticalMaxSpeed,
+                verticalSpeed,
                 velocity.z
         );
-
-        player.addVelocity(
-                newVelocity(directionX, velocity.x, horizontalFactor, baseSpeed),
+        Vec3 addVector = new Vec3(
+                newVelocity(directionX, velocity.x, horizontalFactor),
                 0,
-                newVelocity(directionZ, velocity.z, horizontalFactor, baseSpeed)
-        );
+                newVelocity(directionZ, velocity.z, horizontalFactor)
+                );
+        ClientsideGlidingPayload payload = new ClientsideGlidingPayload(setVector, addVector);
 
         player.fallDistance = 0;
+        ServerPlayNetworking.send(player, payload);
     }
 
     private static int dir(double number) {
         return (number > 0) ? +1 : -1;
     }
 
-    private static double newVelocity(double direction, double velocity, double factor, double speed) {
-        double newSpeed = direction * factor * baseSpeed;
+    private static double newVelocity(double direction, double velocity, double factor) {
+        double newSpeed = direction * factor;
         double dirVelocity = dir(velocity);
 
         return (newSpeed + velocity > factor) ? dirVelocity * factor - velocity : newSpeed;

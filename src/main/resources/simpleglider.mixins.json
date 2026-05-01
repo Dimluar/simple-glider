@@ -1,9 +1,9 @@
 {
 	"required": true,
 	"package": "io.github.dimluar.simpleglider.mixin",
-	"compatibilityLevel": "JAVA_21",
+	"compatibilityLevel": "JAVA_25",
 	"mixins": [
-		"ExampleMixin"
+
 	],
 	"injectors": {
 		"defaultRequire": 1

@@ -2,6 +2,7 @@ package io.github.dimluar.simpleglider;
 
 import io.github.dimluar.simpleglider.component.ModComponents;
 import io.github.dimluar.simpleglider.item.ModItems;
+import io.github.dimluar.simpleglider.network.ModPackets;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -19,5 +20,6 @@ public class SimpleGlider implements ModInitializer {
 	public void onInitialize() {
 		ModItems.initialize();
 		ModComponents.initialize();
+		ModPackets.initialize();
 	}
 }
