@@ -1,21 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
+  "group": "diamond_glider",
   "key": {
-    "#": {
-      "item": "minecraft:diamond"
-    },
-    "@": {
-      "item": "simpleglider:white_iron_glider"
-    }
+    "D": "minecraft:diamond",
+    "I": "simpleglider:white_iron_glider"
   },
   "pattern": [
-    " # ",
-    "#@#",
-    " # "
+    " D ",
+    "DID",
+    " D "
   ],
   "result": {
-    "count": 1,
     "id": "simpleglider:white_diamond_glider"
   }
 }

@@ -1,21 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
+  "group": "iron_glider",
   "key": {
-    "#": {
-      "item": "minecraft:iron_ingot"
-    },
-    "@": {
-      "item": "minecraft:white_wool"
-    }
+    "I": "minecraft:iron_ingot",
+    "W": "minecraft:white_wool"
   },
   "pattern": [
-    "@@@",
-    " # ",
-    "###"
+    "WWW",
+    " I ",
+    "III"
   ],
   "result": {
-    "count": 1,
     "id": "simpleglider:white_iron_glider"
   }
 }
