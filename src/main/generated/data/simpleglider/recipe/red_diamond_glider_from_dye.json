@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "diamond_glider_from_dye",
+  "ingredients": [
+    "#simpleglider:diamond_gliders",
+    "minecraft:red_dye"
+  ],
+  "result": {
+    "id": "simpleglider:red_diamond_glider"
+  }
+}

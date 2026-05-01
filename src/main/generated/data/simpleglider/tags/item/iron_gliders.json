@@ -1,0 +1,20 @@
+{
+  "values": [
+    "simpleglider:white_iron_glider",
+    "simpleglider:light_gray_iron_glider",
+    "simpleglider:gray_iron_glider",
+    "simpleglider:black_iron_glider",
+    "simpleglider:brown_iron_glider",
+    "simpleglider:red_iron_glider",
+    "simpleglider:orange_iron_glider",
+    "simpleglider:yellow_iron_glider",
+    "simpleglider:lime_iron_glider",
+    "simpleglider:green_iron_glider",
+    "simpleglider:cyan_iron_glider",
+    "simpleglider:light_blue_iron_glider",
+    "simpleglider:blue_iron_glider",
+    "simpleglider:purple_iron_glider",
+    "simpleglider:magenta_iron_glider",
+    "simpleglider:pink_iron_glider"
+  ]
+}

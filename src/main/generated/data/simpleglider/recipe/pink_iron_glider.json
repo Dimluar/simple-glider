@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "iron_glider",
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "W": "minecraft:pink_wool"
+  },
+  "pattern": [
+    "WWW",
+    " I ",
+    "III"
+  ],
+  "result": {
+    "id": "simpleglider:pink_iron_glider"
+  }
+}

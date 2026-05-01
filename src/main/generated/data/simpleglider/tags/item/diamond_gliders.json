@@ -1,0 +1,20 @@
+{
+  "values": [
+    "simpleglider:white_diamond_glider",
+    "simpleglider:light_gray_diamond_glider",
+    "simpleglider:gray_diamond_glider",
+    "simpleglider:black_diamond_glider",
+    "simpleglider:brown_diamond_glider",
+    "simpleglider:red_diamond_glider",
+    "simpleglider:orange_diamond_glider",
+    "simpleglider:yellow_diamond_glider",
+    "simpleglider:lime_diamond_glider",
+    "simpleglider:green_diamond_glider",
+    "simpleglider:cyan_diamond_glider",
+    "simpleglider:light_blue_diamond_glider",
+    "simpleglider:blue_diamond_glider",
+    "simpleglider:purple_diamond_glider",
+    "simpleglider:magenta_diamond_glider",
+    "simpleglider:pink_diamond_glider"
+  ]
+}

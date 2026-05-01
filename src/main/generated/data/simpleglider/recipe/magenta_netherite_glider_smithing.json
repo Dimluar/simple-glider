@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "#minecraft:netherite_tool_materials",
+  "base": "simpleglider:magenta_diamond_glider",
+  "result": {
+    "id": "simpleglider:magenta_netherite_glider"
+  },
+  "template": "minecraft:netherite_upgrade_smithing_template"
+}

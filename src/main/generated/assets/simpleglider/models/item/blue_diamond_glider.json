@@ -1,0 +1,6 @@
+{
+  "parent": "simpleglider:item/glider",
+  "textures": {
+    "layer0": "simpleglider:item/blue_diamond_glider"
+  }
+}

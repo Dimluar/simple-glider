@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "iron_glider_from_dye",
+  "ingredients": [
+    "#simpleglider:iron_gliders",
+    "minecraft:orange_dye"
+  ],
+  "result": {
+    "id": "simpleglider:orange_iron_glider"
+  }
+}

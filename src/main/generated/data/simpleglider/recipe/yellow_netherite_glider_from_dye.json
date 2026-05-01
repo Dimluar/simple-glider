@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "netherite_glider_from_dye",
+  "ingredients": [
+    "#simpleglider:netherite_gliders",
+    "minecraft:yellow_dye"
+  ],
+  "result": {
+    "id": "simpleglider:yellow_netherite_glider"
+  }
+}
