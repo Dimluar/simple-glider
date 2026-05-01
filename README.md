@@ -1,8 +1,13 @@
 # Simple Glider
 
-## Setup
+## Summary
 
-For setup instructions, please see the [Fabric Documentation page](https://docs.fabricmc.net/develop/getting-started/creating-a-project#setting-up) related to the IDE that you are using.
+This mods adds three tiers of glider: iron, diamond and netherite.
+
+The gliders don't have durability and each tier changes how slowly you fall and how fast you move in the x and z axis.
+All of them negate fall damage when active.
+
+Each glider is available in the 16 minecraft colors.
 
 ## License
 
